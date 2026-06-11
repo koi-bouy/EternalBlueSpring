@@ -4,26 +4,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>Blue Springs Hotel</title>
     <style>
+        nav {
+
+            flex-direction: column;
+            background-color: rgb(37, 205, 234);
+        }
+
+        nav a {
+            color: darkblue;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: rgb(0, 50, 255);
+            ba
+        }
+
+        nav a:visited {
+            color: red;
+        }
+
+
+
+        nav * {
+            color: lightblue;
+        }
+
         nav div {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 4vw;
+            gap: 2vw;
+        }
+
+        nav div a:not(:has(img)) {
+            width: 15ch;
+            padding: 2vh 1vh;
+            margin: 0.5vw;
+            text-align: center;
+            background-color: white;
+        }
+
+        nav div img {
+            width: 20ch;
         }
     </style>
 </head>
 
 <body>
     <header>
-        <img src="images\Blue Springs.png" alt="logo" width="100">
+        <a href="index.htm">
+            <img src="images\Blue Springs.png" alt="logo" s>
+        </a>
         <h1>Blue Springs Hotel</h1>
     </header>
     <nav>
-        <div><a href="">Button</a><a href=""></a>Button</div>
-        <div><a href="">Button</a><img src="images\Blue Springs.png" alt="logo" width="100"><a href="">Button</a></div>
-        <div><a href="">Button</a><a href="">Button</a></div>
+        <div><a href="activities.htm">Hotel Activites</a><a href="cossack.htm">About Cossack</a></div>
+        <div><a href="guestbook.htm">Guest Book</a><a href="index.htm"><img src="images\Blue Springs.png"
+                    alt="logo"></a><a href="interest.htm">Points of Interest</a></div>
+        <div><a href="staff.htm">Staff Info</a><a href="acknowledge.html">Acknowledgement</a></div>
     </nav>
     <main>
         <p>Blue Springs hotel is a hotel in Cossack WA that definitely exists. Trust us </p>
