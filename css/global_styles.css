@@ -1,0 +1,48 @@
+* {
+    font-family: Calibri, Arial, sans-serif;
+    color: black;
+    font-size: 3vh;
+}
+
+body {
+    margin: 0;
+}
+
+main {
+    padding: 10px;
+}
+
+h1 {
+    font-size: 5vh;
+    ;
+}
+
+h2 {
+    font-size: 4vh;
+}
+
+h1,
+h2 {
+    color: darkblue;
+}
+
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(27, 185, 228);
+}
+
+header img {
+    width: 10vw;
+    margin-right: 23vw;
+}
+
+header h1 {
+    margin-left: 0;
+    width: 33vw;
+    text-align: center;
+    margin-right: 33vw;
+
+}

@@ -4,9 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
     <title>Blue Springs Hotel</title>
+    <link rel="stylesheet" href="css/global_styles.css">
     <style>
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(27, 185, 228);
+        }
+
+        header img {
+            width: 10vw;
+            margin-right: 23vw;
+        }
+
+        header h1 {
+            margin-left: 0;
+            width: 33vw;
+            text-align: center;
+            margin-right: 33vw;
+
+        }
+
         nav {
 
             flex-direction: column;
@@ -18,19 +39,13 @@
             text-decoration: none;
         }
 
-        nav a:hover {
+        nav a:not(:has(img)):hover {
             color: rgb(0, 50, 255);
-            ba
+            background-color: rgb(230, 230, 230);
         }
 
         nav a:visited {
             color: red;
-        }
-
-
-
-        nav * {
-            color: lightblue;
         }
 
         nav div {
@@ -51,6 +66,19 @@
         nav div img {
             width: 20ch;
         }
+
+        main img {
+            height: 40vh;
+            width: auto;
+        }
+
+        main {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-items: center;
+            padding: 3vh;
+        }
     </style>
 </head>
 
@@ -63,15 +91,15 @@
     </header>
     <nav>
         <div><a href="activities.htm">Hotel Activites</a><a href="cossack.htm">About Cossack</a></div>
-        <div><a href="guestbook.htm">Guest Book</a><a href="index.htm"><img src="images\Blue Springs.png"
-                    alt="logo"></a><a href="interest.htm">Points of Interest</a></div>
+        <div><a href="guestbook.htm" target="_blank">Guest Book</a><a href="index.htm"><img
+                    src="images\Blue Springs.png" alt="logo"></a><a href="interest.htm">Points of Interest</a></div>
         <div><a href="staff.htm">Staff Info</a><a href="acknowledge.html">Acknowledgement</a></div>
     </nav>
     <main>
         <p>Blue Springs hotel is a hotel in Cossack WA that definitely exists. Trust us </p>
         <a
             href="https://unsplash.com/photos/white-concrete-building-near-green-grass-field-during-daytime-5Re--kAsKco?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText:white-concrete-building-near-green-grass-field-during-daytime-5Re--kAsKco?utm_source">
-            <img src="images/hotel.jpg" alt="Blue Springs Hotel" style="width:70vw;"></a>
+            <img src="images/hotel.jpg" alt="Blue Springs Hotel"></a>
     </main>
 </body>
 

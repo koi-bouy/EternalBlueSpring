@@ -1,21 +1,7 @@
-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(27, 185, 228);
-}
+@import url('global_styles.css');
 
-header img {
-    width: 10vw;
-    margin-right: 23vw;
-}
-
-header h1 {
-    margin-left: 0;
-    width: 33vw;
-    text-align: center;
-    margin-right: 33vw;
-
+nav {
+    background-color: rgb(37, 205, 234);
 }
 
 nav ul {
@@ -24,11 +10,77 @@ nav ul {
     justify-items: center;
     align-items: center;
     justify-items: center;
-    gap: 3%
+    gap: 3%;
+    margin: 0;
 }
 
-nav ul li {
-    list-style: none;
+nav a {
+    color: darkblue;
+    text-decoration: none;
+    /* background-color: transparent; */
+    /* width: vw; */
+    /* padding: 2vh 1vh; */
+    margin: 0.5vw;
     text-align: center;
+}
+
+nav li:hover a {
+    color: rgb(0, 50, 255);
+}
+
+nav li:hover,
+nav li:hover a {
+    background-color: rgb(27, 195, 224);
+}
+
+nav li {
+    list-style: none;
+    align-items: center;
+    justify-content: center;
     margin: 0;
+    width: 15ch;
+    height: 10vh;
+    padding: 1vh, 1vw;
+    display: flex;
+
+}
+
+@media (orientation: portrait) {
+    nav {
+        display: none;
+    }
+}
+
+/* styling for tables */
+table.striped,
+.striped td {
+    border-collapse: collapse;
+    border: 1px solid green;
+}
+
+
+
+
+.striped tr:nth-child(even) {
+    background-color: lightgreen;
+}
+
+.striped tr:nth-child(odd) {
+    background-color: lightblue;
+}
+
+.striped td {
+    padding: 0px 0.25vw;
+}
+
+.striped td:hover {
+    background-color: #77454540;
+}
+
+.striped th {
+    padding: 0.5vw;
+    background-color: green;
+    color: white;
+    text-align: left;
+    border: 1px solid palegreen;
 }
