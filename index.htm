@@ -8,26 +8,6 @@
     <title>Blue Springs Hotel</title>
     <link rel="stylesheet" href="css/global_styles.css">
     <style>
-        header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: rgb(27, 185, 228);
-        }
-
-        header img {
-            width: 10vw;
-            margin-right: 23vw;
-        }
-
-        header h1 {
-            margin-left: 0;
-            width: 33vw;
-            text-align: center;
-            margin-right: 33vw;
-
-        }
-
         nav {
 
             flex-direction: column;
@@ -39,7 +19,7 @@
             text-decoration: none;
         }
 
-        nav a:not(:has(img)):hover {
+        .nav-button:hover {
             color: rgb(0, 50, 255);
             background-color: rgb(230, 230, 230);
         }
@@ -55,52 +35,54 @@
             gap: 2vw;
         }
 
-        nav div a:not(:has(img)) {
+        .nav-button {
             width: 15ch;
-            padding: 2vh 1vh;
+            padding: 10px 5px;
             margin: 0.5vw;
             text-align: center;
             background-color: white;
         }
 
-        nav div img {
+        .nav-logo {
             width: 20ch;
         }
 
-        main img {
-            height: 40vh;
-            width: auto;
-        }
 
         main {
             display: flex;
             flex-direction: row;
             align-items: center;
-            justify-items: center;
-            padding: 3vh;
+            justify-content: center;
+            gap: 30px;
+            padding: 30px;
         }
     </style>
 </head>
 
 <body>
     <header>
-        <a href="index.htm">
-            <img src="images\Blue Springs.png" alt="logo" s>
+        <a class="logo" href="index.htm">
+            <img class="logo" src="images\Blue Springs.png" alt="logo" s>
         </a>
-        <h1>Blue Springs Hotel</h1>
+        <h1 class="title">Blue Springs Hotel</h1>
     </header>
     <nav>
-        <div><a href="activities.htm">Hotel Activites</a><a href="cossack.htm">About Cossack</a></div>
-        <div><a href="guestbook.htm" target="_blank">Guest Book</a><a href="index.htm"><img
-                    src="images\Blue Springs.png" alt="logo"></a><a href="interest.htm">Points of Interest</a></div>
-        <div><a href="staff.htm">Staff Info</a><a href="acknowledge.html">Acknowledgement</a></div>
+        <div><a class="nav-button" href="activities.htm">Hotel Activites</a><a class="nav-button"
+                href="cossack.htm">About Cossack</a></div>
+        <div><a class="nav-button" href="guestbook.htm" target="_blank">Guest Book</a><a href="index.htm"><img
+                    src="images\Blue Springs.png" alt="logo" style="width:15ch;"></a><a class="nav-button"
+                href="interest.htm">Points of
+                Interest</a></div>
+        <div><a class="nav-button" href="staff.htm">Staff Info</a><a class="nav-button"
+                href="acknowledge.htm">Acknowledgement</a></div>
     </nav>
     <main>
         <p>Blue Springs hotel is a hotel in Cossack WA that definitely exists. Trust us </p>
         <a
             href="https://unsplash.com/photos/white-concrete-building-near-green-grass-field-during-daytime-5Re--kAsKco?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText:white-concrete-building-near-green-grass-field-during-daytime-5Re--kAsKco?utm_source">
-            <img src="images/hotel.jpg" alt="Blue Springs Hotel"></a>
+            <img id="hotel" src="images/hotel.jpg" alt="Blue Springs Hotel" style="width: clamp(0px, 35rem, 60vw);"></a>
     </main>
+    <footer> All page code written by Raphael Fernandes </footer>
 </body>
 
 </html>

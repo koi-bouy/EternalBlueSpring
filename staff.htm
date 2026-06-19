@@ -6,6 +6,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Staff Information</title>
+    <style>
+        tr * {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .staff,
+        .staff img {
+            position: relative;
+        }
+
+        .staff img {
+
+            z-index: 1;
+            width: 180px;
+        }
+
+        .popup ul {
+            margin: 0;
+        }
+
+        .popup strong {
+            color: darkblue;
+        }
+
+        .popup img {
+            align-self: center;
+        }
+
+        .popup * {
+            text-align: left;
+        }
+
+        .popup {
+            position: absolute;
+            text-align: left;
+            width: 300px;
+            display: none;
+            z-index: 10;
+            left: 170px;
+            top: 10px;
+            border: 1px darkslateblue solid;
+            background-color: lightblue;
+            padding: 5px;
+            flex-direction: column;
+        }
+
+
+        .staff:hover .popup {
+            display: inline-flex;
+        }
+
+        main {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            flex-direction: column;
+        }
+
+        footer {
+            padding-bottom: 23rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,46 +86,181 @@
             <li><a href="guestbook.htm">Guest Book</a></li>
             <li><a href="interest.htm">Points of Interest</a></li>
             <li><a href="staff.htm">Staff Info</a></li>
-            <li><a href="acknowledge.html">Acknowledgement</a></li>
+            <li><a href="acknowledge.htm">Acknowledgement</a></li>
         </ul>
     </nav>
     <main>
-        <section>
-            <img src="images/staff/Manager.jpeg" alt="Photo of Janice">
-            <br>
-            Janice O'Leahy
-            <br>
-            Manager
-        </section>
-        <section>
-            <img src="images/staff/concierge.jpg" alt="Photo of Maurice">
-            <br>
-            Maurice Smith
-            <br>
-            Concierge
-        </section>
-        <section>
-            <img src="images/staff/female_manager_2.jpg" alt="Photo of Vera">
-            <br>
-            Vera Petrova
-            <br>
-            Activities Coordinator
-        </section>
-        <section>
-            <img src="images/staff/bartender.jpg" alt="Photo of Reginald">
-            <br>
-            Reginald Platt
-            <br>
-            Bar Manager
-        </section>
-        <section>
-            <img src="images/staff/chef.jpg" alt="Photo of Alexis">
-            <br>
-            Alexis Garnier
-            <br>
-            Senior Chef
-        </section>
+        <p>
+            Hover over a staff member's picture below to learn more about them!
+        </p>
+        <table class="striped">
+            <thead>
+                <tr>
+                    <th>Photo</th>
+                    <th>Name</th>
+                    <th>Title</th>
+                </tr>
+            </thead>
+            <tbody>
+
+
+                <tr>
+                    <td class="staff"> <img src="images/staff/Manager.jpeg" alt="Photo of Janice">
+                        <div class="popup">
+                            <img src="images/staff/Manager.jpeg" alt="Photo of Janice">
+                            <strong>Name</strong>
+                            Janice O' Leahy
+                            <strong>Job Title</strong>
+                            Manager
+                            <strong>About Janice</strong>
+                            Janice has worked in hospitality and guest services for over 15 years. She enjoys creating a
+                            welcoming environment and making sure both guests and staff have a positive experience. She
+                            is organised, approachable, and enjoys solving problems.
+                            <strong>Assists with</strong>
+                            <ul>
+                                <li>General enquiries and concerns</li>
+                                <li>Feedback and complaints</li>
+                                <li>Booking and accommodation issues</li>
+                                <li>Special requests and accessibility arrangements</li>
+                                <li>Information about services and facilities</li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td> Janice O'Leahy </td>
+                    <td> Manager </td>
+                </tr>
+                <tr>
+
+                    <td class="staff"><img src="images/staff/concierge.jpg" alt="Photo of Maurice">
+                        <div class="popup">
+
+                            <img src="images/staff/concierge.jpg" alt="Photo of Maurice">
+                            <strong>Name</strong>
+                            Maurice Smith
+                            <strong>Job Title</strong>
+                            Concierge
+                            <strong>About Maurice</strong>
+                            Maurice is friendly, knowledgeable, and always happy to help guests make the most of
+                            their
+                            stay. He has extensive local knowledge and enjoys connecting visitors with attractions,
+                            dining options, and events.
+                            <strong>Assists with</strong>
+                            <ul>
+                                <li>Local recommendations and directions</li>
+                                <li>Transport arrangements</li>
+                                <li>Restaurant and tour bookings</li>
+                                <li>Information about nearby attractions</li>
+                                <li>General guest assistance</li>
+                            </ul>
+                        </div>
+                        </div>
+                    </td>
+                    <td>
+                        Maurice Smith
+                    </td>
+                    <td>
+                        Concierge
+                    </td>
+                </tr>
+                <tr>
+                    <td class="staff">
+                        <img src="images/staff/female_manager_2.jpg" alt="Photo of Vera">
+                        <div class="popup">
+
+                            <img src="images/staff/female_manager_2.jpg" alt="Photo of Vera">
+
+                            <strong>Name</strong>
+                            Vera Petrova
+                            <strong>Job Title</strong>
+                            Activities Coordinator
+                            <strong>About Vera</strong>
+                            Vera is energetic and creative, with a passion for organising engaging activities for guests
+                            of all ages. She enjoys bringing people together through social events, workshops, and
+                            recreational programs.
+                            <strong>Assists with</strong>
+                            <ul>
+                                <li>Activity bookings and schedules</li>
+                                <li>Information about upcoming events</li>
+                                <li>Group activities and workshops</li>
+                                <li>Recreational and leisure programs</li>
+                                <li>Special event enquiries</li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td>Vera Petrova</td>
+                    <td>
+                        Activities Coordinator
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="staff">
+                        <img src="images/staff/bartender.jpg" alt="Photo of Reginald">
+                        <div class="popup">
+
+
+                            <img src="images/staff/bartender.jpg" alt="Photo of Reginald">
+                            <strong>Name</strong>
+                            Reginald Platt
+                            <strong>Job Title</strong>
+                            Bar Manager
+                            <strong>About Reginald</strong>
+                            Reginald has a strong background in hospitality and beverage service. Known for his
+                            professionalism and attention to detail, he takes pride in ensuring guests enjoy a relaxing
+                            and enjoyable atmosphere.
+                            <strong>Assists with</strong>
+                            <ul>
+                                <li>Beverage recommendations</li>
+                                <li>Information about bar menus and specials</li>
+                                <li>Private functions and event catering</li>
+                                <li>Dietary and beverage-related enquiries</li>
+                                <li>General hospitality assistance within the bar area</li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td>
+                        Reginald Platt
+
+                    </td>
+                    <td>
+                        Bar Manager
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="staff">
+                        <img src="images/staff/chef.jpg" alt="Photo of Alexis">
+                        <div class="popup">
+                            <img src="images/staff/chef.jpg" alt="Photo of Alexis">
+                            <strong>Name</strong>
+                            Alexis Garnier
+                            <strong>Job Title</strong>
+                            Senior Chef
+                            <strong>About Alexis</strong>
+                            Alexis is an experienced chef who enjoys creating high-quality meals using fresh
+                            ingredients. With a passion for both traditional and modern cuisine, Alexis focuses on
+                            providing memorable dining experiences for guests.
+                            <strong>Assists with</strong>
+                            <ul>
+                                <li>Menu and meal information</li>
+                                <li>Dietary requirements and allergies</li>
+                                <li>Special meal requests</li>
+                                <li>Catering enquiries</li>
+                                <li>Information about ingredients and food preparation methods</li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td>
+                        Alexis Garnier
+                    </td>
+                    <td>
+                        Senior Chef
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </main>
+    <footer> Contains content generated by AI. All page code written by Raphael Fernandes </footer>
 </body>
 
 </html>

@@ -39,30 +39,28 @@ nav li {
     justify-content: center;
     margin: 0;
     width: 15ch;
-    height: 10vh;
-    padding: 1vh, 1vw;
+    height: 60px;
     display: flex;
 
 }
 
-@media (orientation: portrait) {
-    nav {
-        display: none;
-    }
-}
+
 
 /* styling for tables */
-table.striped,
-.striped td {
+.striped,
+.striped td,
+.striped th {
     border-collapse: collapse;
-    border: 1px solid green;
+    border: 1px solid darkslateblue;
 }
 
 
-
+main {
+    padding-left: 20px;
+}
 
 .striped tr:nth-child(even) {
-    background-color: lightgreen;
+    background-color: white;
 }
 
 .striped tr:nth-child(odd) {
@@ -70,17 +68,26 @@ table.striped,
 }
 
 .striped td {
-    padding: 0px 0.25vw;
+    padding: 0px 3px;
 }
 
 .striped td:hover {
-    background-color: #77454540;
+    background-color: lightgreen;
+}
+
+.vid {
+    border-radius: 10px;
+    width: 450px;
+    height: 253.125px;
 }
 
 .striped th {
-    padding: 0.5vw;
-    background-color: green;
-    color: white;
+    padding: 5px;
+    background-color: rgb(27, 185, 228);
+    color: darkblue;
     text-align: left;
-    border: 1px solid palegreen;
+}
+
+ul {
+    margin-top: 0;
 }

@@ -48,23 +48,22 @@ try {
         $stmt->execute([$fname, $familyname, $countrycity, $comment]);
 
         echo "<h2>Guestbook Entry Submitted Successfully</h2>";
+    }
+    // Display all records
+    $sql = "SELECT * FROM guestbook";
 
-        // Display all records
-        $sql = "SELECT * FROM guestbook";
+    $stmt = $conn->prepare($sql);
 
-        $stmt = $conn->prepare($sql);
+    $stmt->execute();
 
-        $stmt->execute();
-
-        echo "<table border='1' cellpadding='10'>";
-        echo "<tr>
+    echo "<table border='1', class='striped' cellpadding='10'>";
+    echo "<tr>
             <th>ID          </th>
             <th>First Name  </th>
             <th>Family Name </th>
             <th>Country/City</th>
             <th>Comment     </th>
           </tr>";
-    }
 
     for ($i = 0; ($row = $stmt->fetch()) && $i < 10; $i++) {
 
