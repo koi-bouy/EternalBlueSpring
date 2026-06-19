@@ -13,10 +13,10 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Create database if not exists
-    $conn->exec("CREATE DATABASE IF NOT EXISTS mining");
+    $conn->exec("CREATE DATABASE IF NOT EXISTS hotel");
 
     // Connect to mining database
-    $conn = new PDO("mysql:host=$servername;dbname=mining", $username, $password);
+    $conn = new PDO("mysql:host=$servername;dbname=hotel", $username, $password);
 
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -32,13 +32,13 @@ try {
     ";
 
     // Get values from form
-    $fname = $_POST["fname"];
-    $familyname = $_POST["familyname"];
-    $countrycity = $_POST["countrycity"];
-    $comment = $_POST["comment"];
     $conn->exec($tableSQL);
-    if (isset($fname, $familyname, $countrycity, $comment)) {
+    if (isset($_POST["fname"], $_POST["familyname"], $_POST["countrycity"], $_POST["comment"])) {
 
+        $fname = $_POST["fname"];
+        $familyname = $_POST["familyname"];
+        $countrycity = $_POST["countrycity"];
+        $comment = $_POST["comment"];
         // Insert values into table
         $sql = "INSERT INTO guestbook (fname, familyname, countrycity, comment)
             VALUES (?, ?, ?, ?)";
