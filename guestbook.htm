@@ -69,7 +69,7 @@
         // validate input
         function validate(field) {
             // Trim input and assign 
-            const input = field.value = field.value.trim();
+            const input = field.value = field.value.trimLeft();
 
             // block < injection as required by assessment
             if (input.includes('<')) {
@@ -87,6 +87,7 @@
 
             // Loop through and ensure they are valid, cancelling submission if they are not
             for (const field of fields) {
+                field.trim();
                 if (!field.reportValidity()) {
                     return false;
                 }
