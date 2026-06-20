@@ -148,7 +148,7 @@
 <body>
     <header>
         <a href="index.htm">
-            <img src="images/Blue Springs.png" alt="logo">
+            <img src="images/Blue_Springs.png" alt="logo">
         </a>
         <h1>Guest Book</h1>
     </header>
@@ -164,6 +164,7 @@
     </nav>
     <main>
         <article>
+            <h2>Feedback Form</h2>
             <form action="actionpage.php" target="table" method="post" onsubmit="return validateForm()">
                 <label for="rowid">Selected ID</label>
                 <input disabled id="rowid" type="text" placeholder="ID will appear here when a row is selected...">
@@ -187,7 +188,7 @@
                 Recent Feedback
             </h2>
 
-            <iframe onload="attach(this)" name="table" src="actionpage.php" frameborder="0"></iframe>
+            <iframe onload="attach(this)" name="table" src="actionpage.php"></iframe>
         </article>
     </main>
 
