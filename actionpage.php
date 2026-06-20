@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            background-color: white;
+        }
+
+        table {
+            width: 97vw;
+        }
+    </style>
 </head>
 
 <body>
@@ -58,11 +67,9 @@
             $stmt = $conn->prepare($sql);
 
             $stmt->execute([$fname, $familyname, $countrycity, $comment]);
-
-            echo "<h2>Guestbook Entry Submitted Successfully</h2>";
         }
         // Display all records
-        $sql = "SELECT * FROM guestbook";
+        $sql = "SELECT * FROM (SELECT * FROM guestbook ORDER BY id DESC LIMIT 10) as last ORDER BY id ASC";
 
         $stmt = $conn->prepare($sql);
 
@@ -70,21 +77,22 @@
 
         echo "<table class='striped'>";
         echo "<tr>
-<th>ID          </th>
-<th>First Name  </th>
-<th>Family Name </th>
-<th>Country/City</th>
-<th>Comment     </th>
-</tr>";
+                  <th>ID          </th>
+                  <th>First Name  </th>
+                  <th>Family Name </th>
+                  <th>Country/City</th>
+                  <th>Comment     </th>
+              </tr>";
 
-        for ($i = 0; ($row = $stmt->fetch()) && $i < 10; $i++) {
+        while ($row = $stmt->fetch()) {
 
-            echo "<tr>
-    <td>" . $row["fname"] .       "</td>
-    <td>" . $row["familyname"] .  "</td>
-    <td>" . $row["countrycity"] . "</td>
-    <td>" . $row["comment"] .     "</td>
-    </tr>";
+            echo "<tr class='data'>
+                      <td>" . $row["id"] .          "</td>
+                      <td>" . $row["fname"] .       "</td>
+                      <td>" . $row["familyname"] .  "</td>
+                      <td>" . $row["countrycity"] . "</td>
+                      <td>" . $row["comment"] .     "</td>
+                  </tr>";
         }
 
         echo "</table>";
