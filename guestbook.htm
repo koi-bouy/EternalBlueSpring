@@ -4,20 +4,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acknowledgement of Country</title>
+    <title>Guest book</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        iframe {
+            width: 100%;
+            height: 20rem;
+            align-self: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 10px;
+            width: 100%;
+
+        }
+
+        label {
+            color: darkblue;
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            height: 44px;
+        }
+
+        article {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 60vw !important;
+        }
+    </style>
+    <script>
+        // validate input
+        function validate(field) {
+            // Trim input and assign 
+            const input = field.value = field.value.trim();
+
+            // block < injection as required by assessment
+            if (input.includes('<')) {
+
+                // Set custom validity, causing the form to reject the field
+                field.setCustomValidity("Invalid input");
+            } else if (input !== "") { // If the input doesn't include an opening bracket, 
+                field.setCustomValidity("");
+            }
+            field.reportValidity();
+        }
+        function validateForm() {
+            // Get all user editable input fields from the form
+            const fields = document.querySelectorAll("form input:not([disabled]), form textarea");
+
+            // Loop through and ensure they are valid, cancelling submission if they are not
+            for (const field of fields) {
+                if (!field.reportValidity()) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    </script>
+    <script>
+        // populate on click
+        function populate(e) {
+            // Get the table row object that was clicked
+            const row = e.currentTarget;
+
+            // Grab cell objects from row
+            const cells = row.cells;
+
+            // Extract each from the row
+            const ID = cells[0].textContent;
+            const firstName = cells[1].textContent;
+            const lastName = cells[2].textContent;
+            const countryCity = cells[3].textContent;
+            const message = cells[4].textContent;
+
+            // Get form input fields via IDs
+            const rowid = document.getElementById("rowid");
+            const fname = document.getElementById("fname");
+            const lname = document.getElementById("lname");
+            const country = document.getElementById("country");
+            const comment = document.getElementById("comment");
+
+            // Copy values from clicked row to form fields
+            rowid.value = ID
+            fname.value = firstName
+            lname.value = lastName
+            country.value = countryCity
+            comment.value = message
+        }
+        function attach(iframe) {
+            // Grab inner document from the iframe
+            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+
+            // Pull all td-containing rows (which i classed .data) from actionpage.php
+            const rows = iframeDoc.querySelectorAll("tr.data");
+
+            // Loop through each row and add event listener for clicks
+            for (const row of rows) {
+                row.addEventListener('click', populate)
+            }
+
+            // Clear form when iframe reloads (successfull submission/page reload)
+            document.querySelector("form").reset();
+
+        }
+
+    </script>
 </head>
 
 <body>
     <header>
         <a href="index.htm">
-            <img src="images\Blue Springs.png" alt="logo">
+            <img src="images/Blue Springs.png" alt="logo">
         </a>
-        <h1>Acknowledgement of Country</h1>
+        <h1>Guest Book</h1>
     </header>
     <nav>
         <ul>
-
             <li><a href="activities.htm">Hotel Activites</a></li>
             <li><a href="cossack.htm">About Cossack</a></li>
             <li><a href="guestbook.htm">Guest Book</a></li>
@@ -27,8 +136,32 @@
         </ul>
     </nav>
     <main>
-        <form action="actionpage.php" target="table" method="post"></form>
-        <iframe name="table" table src="actionpage.php" frameborder="0"></iframe>
+        <article>
+            <form action="actionpage.php" target="table" method="post" onsubmit="return validateForm()">
+                <label for="rowid">Selected ID</label>
+                <input disabled id="rowid" type="text" placeholder="">
+                <label for="fname">First Name</label>
+                <input required oninput="validate(this)" id="fname" name="fname" type="text"
+                    placeholder="Enter your first name here...">
+                <label for="lname">Family Name</label>
+                <input required oninput="validate(this)" id="lname" name="familyname" type="text"
+                    placeholder="Enter your last name here...">
+                <label for="country">Country/City</label>
+                <input required oninput="validate(this)" id="country" name="countrycity" type="text"
+                    placeholder="E.g. Australia, Perth">
+                <label for="comment">Comment</label>
+                <textarea required oninput="validate(this)" id="comment" name="comment"
+                    placeholder="What would you like us to know?"></textarea>
+                <input type="submit">
+            </form>
+        </article>
+        <article>
+            <h2>
+                Recent Feedback
+            </h2>
+
+            <iframe onload="attach(this)" name="table" src="actionpage.php" frameborder="0"></iframe>
+        </article>
     </main>
 
     <footer> All page code written by Raphael Fernandes </footer>

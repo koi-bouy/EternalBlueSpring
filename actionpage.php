@@ -12,7 +12,7 @@
         }
 
         table {
-            width: 97vw;
+            width: 100%;
         }
     </style>
 </head>
@@ -35,37 +35,43 @@
 
         // Create database if not exists
         $conn->exec("CREATE DATABASE IF NOT EXISTS hotel");
-
         // Connect to mining database
         $conn = new PDO("mysql:host=$servername;dbname=hotel", $username, $password);
 
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // Create guestbook table if not exists
-        $tableSQL = "
-    CREATE TABLE IF NOT EXISTS guestbook (
+        $tableSQL = "CREATE TABLE IF NOT EXISTS guestbook (
         id INT AUTO_INCREMENT PRIMARY KEY,
         fname VARCHAR(50) NOT NULL,
         familyname VARCHAR(50) NOT NULL,
         countrycity VARCHAR(100) NOT NULL,
         comment VARCHAR(255) NOT NULL
-        )
-        ";
-
-        // Get values from form
+        )";
         $conn->exec($tableSQL);
-        if (isset($_POST["fname"], $_POST["familyname"], $_POST["countrycity"], $_POST["comment"])) {
 
+
+        // create query for inserting into table
+        $sql = "INSERT INTO guestbook (fname, familyname, countrycity, comment)
+            VALUES (?, ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+
+        // INSERT intitial values into guestbook table as required by assessment
+        $populateSQL = "SELECT 1 FROM guestbook LIMIT 1";
+        $CHECK = $conn->prepare($populateSQL);
+        $CHECK->execute();
+        if (!$CHECK->fetch()) {
+            $stmt->execute(["John", "Williams", "USA, Ulysses, New York", "Great food"]);
+            $stmt->execute(["Amanda", "Suarez", "Spain, Oveido, Asturias", "Relaxing atmosphere"]);
+        }
+
+
+        if (isset($_POST["fname"], $_POST["familyname"], $_POST["countrycity"], $_POST["comment"])) {
+            // Get values from form
             $fname = $_POST["fname"];
             $familyname = $_POST["familyname"];
             $countrycity = $_POST["countrycity"];
             $comment = $_POST["comment"];
-            // Insert values into table
-            $sql = "INSERT INTO guestbook (fname, familyname, countrycity, comment)
-            VALUES (?, ?, ?, ?)";
-
-            $stmt = $conn->prepare($sql);
-
             $stmt->execute([$fname, $familyname, $countrycity, $comment]);
         }
         // Display all records
