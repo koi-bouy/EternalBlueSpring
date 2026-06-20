@@ -29,14 +29,40 @@
 
         input,
         textarea {
-            height: 44px;
+            background-color: aliceblue;
+            border: 2px solid darkslateblue;
         }
+
+        input {
+            height: 50px;
+
+        }
+
+        textarea {
+            height: 100px
+        }
+
+        [disabled] {
+            background-color: turquoise;
+        }
+
+        input.submit {
+            background-color: darkblue;
+            color: white;
+        }
+
+        input.submit:hover {
+            cursor: pointer;
+            background-color: rgb(0, 0, 170);
+            font-weight: bold;
+        }
+
+
 
         article {
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 60vw !important;
         }
     </style>
     <script>
@@ -127,19 +153,19 @@
     </header>
     <nav>
         <ul>
-            <li><a href="activities.htm">Hotel Activites</a></li>
-            <li><a href="cossack.htm">About Cossack</a></li>
-            <li><a href="guestbook.htm">Guest Book</a></li>
-            <li><a href="interest.htm">Points of Interest</a></li>
-            <li><a href="staff.htm">Staff Info</a></li>
-            <li><a href="acknowledge.htm">Acknowledgement</a></li>
+            <li><a class="nav-button" href="activities.htm">Hotel Activites</a></li>
+            <li><a class="nav-button" href="cossack.htm">About Cossack</a></li>
+            <li><a class="nav-button" href="index.htm">Home</a></li>
+            <li><a class="nav-button" href="interest.htm">Points of Interest</a></li>
+            <li><a class="nav-button" href="staff.htm">Staff Info</a></li>
+            <li><a class="nav-button" href="acknowledge.htm">Acknowledgement</a></li>
         </ul>
     </nav>
     <main>
         <article>
             <form action="actionpage.php" target="table" method="post" onsubmit="return validateForm()">
                 <label for="rowid">Selected ID</label>
-                <input disabled id="rowid" type="text" placeholder="">
+                <input disabled id="rowid" type="text" placeholder="ID will appear here when a row is selected...">
                 <label for="fname">First Name</label>
                 <input required oninput="validate(this)" id="fname" name="fname" type="text"
                     placeholder="Enter your first name here...">
@@ -152,7 +178,7 @@
                 <label for="comment">Comment</label>
                 <textarea required oninput="validate(this)" id="comment" name="comment"
                     placeholder="What would you like us to know?"></textarea>
-                <input type="submit">
+                <input type="submit" class="submit">
             </form>
         </article>
         <article>

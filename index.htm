@@ -4,50 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="css/style.css"> -->
     <title>Blue Springs Hotel</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        nav {
-
-            flex-direction: column;
-            background-color: rgb(37, 205, 234);
-        }
-
-        nav a {
-            color: darkblue;
-            text-decoration: none;
-        }
-
-        .nav-button:hover {
-            color: rgb(0, 50, 255);
-            background-color: rgb(230, 230, 230);
-        }
-
-        nav a:visited {
-            color: red;
-        }
-
-        nav div {
+        .nav-row {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 2vw;
         }
 
-        .nav-button {
-            width: 15ch;
-            padding: 10px 5px;
-            margin: 0.5vw;
-            text-align: center;
-            background-color: white;
-        }
-
         .nav-logo {
             width: 20ch;
             background-color: transparent;
         }
-
 
         main {
             display: flex;
@@ -68,13 +38,13 @@
         <h1 class="title">Blue Springs Hotel</h1>
     </header>
     <nav>
-        <div><a class="nav-button" href="activities.htm">Hotel Activites</a><a class="nav-button"
+        <div class="nav-row"><a class="nav-button" href="activities.htm">Hotel Activites</a><a class="nav-button"
                 href="cossack.htm">About Cossack</a></div>
-        <div><a class="nav-button" href="guestbook.htm" target="_blank">Guest Book</a><a href="index.htm"><img
-                    src="images/Blue Springs.png" alt="logo" style="width:15ch;"></a><a class="nav-button"
-                href="interest.htm">Points of
+        <div class="nav-row"><a class="nav-button" href="guestbook.htm" target="_blank">Guest Book</a><a
+                href="index.htm"><img src="images/Blue Springs.png" alt="logo" style="width:15ch;"></a><a
+                class="nav-button" href="interest.htm">Points of
                 Interest</a></div>
-        <div><a class="nav-button" href="staff.htm">Staff Info</a><a class="nav-button"
+        <div class="nav-row"><a class="nav-button" href="staff.htm">Staff Info</a><a class="nav-button"
                 href="acknowledge.htm">Acknowledgement</a></div>
     </nav>
     <main>
